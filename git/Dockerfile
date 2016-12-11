@@ -20,7 +20,7 @@ CMD ["/usr/bin/git", \
 	"--listen=0.0.0.0", \
 	"--port=9418", \
 	"--export-all", \
-	"--user=git", \
+#	"--user=git", \
 	"--verbose", \
         "--enable=receive-pack", \
 	"--base-path=/repo", \
