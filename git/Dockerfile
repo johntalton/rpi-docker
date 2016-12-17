@@ -6,7 +6,7 @@ EXPOSE 9418
 # VOLUME ["/repo"] # shared and persistant to containor
 
 RUN apt-get update
-RUN apt-get install git
+RUN apt-get -y install git
 
 RUN groupadd -r git && useradd -m -d /home/git -r -s /usr/bin/git-shell -g git git
 

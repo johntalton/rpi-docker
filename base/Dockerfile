@@ -1,10 +1,11 @@
 # This is a comment
-FROM resin/rpi-raspbian
+# FROM resin/rpi-raspbian
+FROM armhf/debian
 MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get update
 
-RUN apt-get install ntp
+RUN apt-get -y install ntp xz-utils
 # COPY ntpd.conf /etc/ntpd.conf
 
 # RUN apt-get install wget curl nano git-core ssh iproute2
