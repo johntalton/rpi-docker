@@ -4,11 +4,11 @@ MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get update
 
-RUN apt-get install curl make erlang build-essential 
-RUN apt-get install libmozjs185-dev 
+RUN apt-get -y install curl make erlang build-essential 
+RUN apt-get -y install libmozjs185-dev 
 
 RUN apt-get update
-RUN apt-get install libicu-dev
+RUN apt-get -y install libicu-dev
 
 RUN groupadd -r couchdb
 RUN useradd --system \

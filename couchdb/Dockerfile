@@ -10,7 +10,7 @@ RUN apt-get update
 
 
 RUN mkdir /var/run/couchdb
-RUN apt-get install couchdb
+RUN apt-get -y install couchdb
 
 # WORKDIR /opt/couchdb
 EXPOSE 5984 

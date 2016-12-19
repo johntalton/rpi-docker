@@ -6,14 +6,14 @@ EXPOSE 9418
 # VOLUME ["/repo"] # shared and persistant to containor
 
 RUN apt-get update
-RUN apt-get -y install git
+RUN apt-get install gpsd gpsd-clients
 
-RUN groupadd -r git && useradd -m -d /home/git -r -s /usr/bin/git-shell -g git git
+#RUN groupadd -r git && useradd -m -d /home/git -r -s /usr/bin/git-shell -g git git
 
-WORKDIR /home/git
-RUN mkdir .ssh && chmod 700 .ssh
-# COPY authorized_keys .ssh/authorized_keys
-# RUN chown git:git .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
+#WORKDIR /home/git
+#RUN mkdir .ssh && chmod 700 .ssh
+#COPY authorized_keys .ssh/authorized_keys
+#RUN chown git:git .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
 
 CMD ["/usr/bin/git", \
 	"daemon", \
