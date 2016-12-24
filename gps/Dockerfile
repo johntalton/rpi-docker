@@ -13,7 +13,7 @@ RUN apt-get -y install gpsd gpsd-clients
 EXPOSE 2947
 
 CMD ["gpsd", \
-	"-Gbn", \
+	"-NGbn", \
 	"/dev/ttyAMA0"]
 
 
