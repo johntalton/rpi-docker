@@ -2,29 +2,19 @@
 FROM jotalt/rpi-base
 MAINTAINER John Talton <johntalton@gmail.com>
 
-EXPOSE 9418
-# VOLUME ["/repo"] # shared and persistant to containor
-
-RUN apt-get update
-RUN apt-get install gpsd gpsd-clients
-
-#RUN groupadd -r git && useradd -m -d /home/git -r -s /usr/bin/git-shell -g git git
+RUN apt-get -qq update
+RUN apt-get -y install gpsd gpsd-clients
 
 #WORKDIR /home/git
-#RUN mkdir .ssh && chmod 700 .ssh
-#COPY authorized_keys .ssh/authorized_keys
-#RUN chown git:git .ssh/authorized_keys && chmod 600 .ssh/authorized_keys
 
-CMD ["/usr/bin/git", \
-	"daemon", \
-	"--listen=0.0.0.0", \
-	"--port=9418", \
-	"--export-all", \
-#	"--user=git", \
-	"--verbose", \
-        "--enable=receive-pack", \
-	"--base-path=/repo", \
-	"/repo"]
+# /etc/defaut/gpsd.conf
+# /etc/ntp.conf
+
+EXPOSE 2947
+
+CMD ["gpsd", \
+	"-Gbn", \
+	"/dev/ttyAMA0"]
 
 
 
