@@ -23,9 +23,9 @@ WORKDIR /tmp
 RUN curl -OsSL https://www.apache.org/dist/couchdb/source/2.0.0/apache-couchdb-2.0.0.tar.gz
 RUN tar -xzf apache-couchdb-2.0.0.tar.gz
 WORKDIR apache-couchdb-2.0.0
-RUN ./configure --nodocs
+RUN ./configure
 
-RUN rm /usr/lib/erlang/man/man3/cerf*
+# RUN rm /usr/lib/erlang/man/man3/cerf*
 
 RUN make release
 
