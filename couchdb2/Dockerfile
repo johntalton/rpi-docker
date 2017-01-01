@@ -4,13 +4,20 @@ MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get -qq update
 
-RUN apt-get -y --no-install-recommends install curl make erlang-dev erlang-nox build-essential 
-RUN apt-get -y install libmozjs185-dev 
+RUN apt-get -y --no-install-recommends install curl make wget ca-certificates
 
-RUN apt-get -qq update
-RUN apt-get -y install libicu-dev
+RUN echo "deb http://packages.erlang-solutions.com/debian jessie contrib" >> sources.list
+RUN wget http://packages.erlang-solutions.com/debian/erlang_solutions.asc
+RUN apt-key add erlang_solutions.asc
 
-RUN apt-get -y install ca-certificates
+RUN apt-get update
+
+RUN apt-get -y install erlang-dev erlang-nox erlang-reltools
+RUN apt-get -y install build-essential
+RUN apt-get -y install libmozjs185-1.0 libmozjs185-dev 
+RUN apt-get -y install libcurl4-openssl-dev libicu-dev
+
+
 
 RUN groupadd -r couchdb
 RUN useradd --system \
@@ -31,7 +38,7 @@ RUN make release
 
 RUN mkdir /home/couchdb
 RUN cp -R rel/couchdb /home/couchdb
-RUN chown -R couchdb:couchdb /home/couchdb/couchdb
+RUN chown -R couchdb:couchdb /home/couchdb
 RUN find /home/couchdb/couchdb -type d -exec chmod 0770 {} \;
 RUN chmod 0644 /home/couchdb/couchdb/etc/*
 
