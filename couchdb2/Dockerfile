@@ -6,17 +6,17 @@ RUN apt-get -qq update
 
 RUN apt-get -y --no-install-recommends install curl make wget ca-certificates
 
-RUN echo "deb http://packages.erlang-solutions.com/debian jessie contrib" >> sources.list
+RUN echo "deb http://packages.erlang-solutions.com/debian jessie contrib" >> /etc/apt/sources.list
 RUN wget http://packages.erlang-solutions.com/debian/erlang_solutions.asc
 RUN apt-key add erlang_solutions.asc
 
 RUN apt-get update
 
-RUN apt-get -y install erlang-dev erlang-nox erlang-reltools
+RUN apt-get -y install erlang-dev erlang-nox erlang-reltool
 RUN apt-get -y install build-essential
 RUN apt-get -y install libmozjs185-1.0 libmozjs185-dev 
 RUN apt-get -y install libcurl4-openssl-dev libicu-dev
-
+RUN apt-get -y install help2man
 
 
 RUN groupadd -r couchdb
