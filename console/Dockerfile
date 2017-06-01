@@ -16,7 +16,7 @@ RUN cd wiringPi && ./build
 
 RUN apt-get -y install i2c-tools
 
-
+RUN apt-get -y install gpsd-clients
 
 # CMD [""]
 CMD ["/bin/bash"]
