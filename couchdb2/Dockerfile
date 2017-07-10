@@ -46,6 +46,8 @@ WORKDIR /home/couchdb
 
 EXPOSE 5984 
 EXPOSE 5986
+EXPOSE 9100
+EXPOSE 3469
 
 COPY local.ini /home/couchdb/couchdb/etc/local.ini
 CMD ["/home/couchdb/couchdb/bin/couchdb"]
