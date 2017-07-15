@@ -3,7 +3,7 @@ FROM jotalt/rpi-base
 MAINTAINER John Talton <johntalton@gmail.com>
 
 EXPOSE 9418
-# VOLUME ["/repo"] # shared and persistant to containor
+VOLUME ["/repo"] # shared and persistant to containor
 
 RUN apt-get update
 RUN apt-get -y install git
