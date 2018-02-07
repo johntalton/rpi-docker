@@ -4,16 +4,20 @@ MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get update
 
+# RUN groupadd -r mosquitto && useradd --system --no-log-init -g mosquitto mosquitto
+
 RUN apt-get -y install mosquitto
 
-# RUN groupadd -r mosquitto && useradd --no-log-init -r -g mosquitto mosquitto
-# VOLUME [/application]
+# VOLUME [/var/lib/db]
+
 USER mosquitto
-WORKDIR /home/mosquitto
+WORKDIR /var/lib/mosquitto
+
+COPY mosquitto.conf /var/lib/mosquitto/
 
 EXPOSE 1883
 
-CMD ["/usr/sbin/mosquitto"]
+CMD ["/usr/sbin/mosquitto", "-c", "/var/lib/mosquitto/mosquitto.conf"]
 
 
 
