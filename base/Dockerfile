@@ -1,6 +1,8 @@
 # This is a comment
 # FROM resin/rpi-raspbian
-FROM armhf/debian
+# FROM arm32v7/debian
+FROM armv7/armhf-debian
+# FROM armhf/debian
 MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get update
