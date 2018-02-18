@@ -1,17 +1,20 @@
-# This is a comment
 FROM jotalt/rpi-base
 MAINTAINER John Talton <johntalton@gmail.com>
 
+ENV DEBIAN_FRONTEND=noninteractive
+
 RUN apt-get update
 
-ENV DEBIAN_FRONTEND=noninteractive 
+RUN apt-get -y install xserver-xorg-core xserver-xorg-video-fbdev xserver-xorg-input-evdev
+RUN apt-get -y install xinput-calibrator
+RUN apt-get -y install evtest xterm x11-apps
+RUN apt-get -y install x11-xserver-utils
 
-RUN apt-get -y install xserver-xorg-core
+COPY xorg.conf /etc/X11/xorg.conf
 
-# RUN apt-get -y install xdm
-RUN apt-get -y install lxde
+EXPOSE 6000
 
-CMD ["/bin/bash"]
+CMD ["/usr/bin/Xorg", "-noreset", "-retro", "-to", "10", "-verbose", "6", "-s", "0"]
 
 
 
