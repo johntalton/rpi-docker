@@ -1,5 +1,4 @@
-# This is a comment
-FROM jotalt/rpi-base
+FROM jotalt/rpi-raspbian:stretch
 MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get update
