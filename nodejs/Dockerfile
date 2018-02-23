@@ -1,4 +1,4 @@
-FROM jotalt/rpi-raspbian:stretch
+FROM jotalt/rpi-base
 MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get update

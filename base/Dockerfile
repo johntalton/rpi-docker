@@ -1,4 +1,5 @@
-FROM armv7/armhf-debian
+FROM jotalt/rpi-raspbian:stretch
+#FROM armv7/armhf-debian
 MAINTAINER John Talton <johntalton@gmail.com>
 
 RUN apt-get update
