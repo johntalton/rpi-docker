@@ -15,7 +15,7 @@ RUN tar xf node-v9.6.0-linux-armv7l.tar.xz -C /usr/local --strip 1
 RUN rm node-v9.6.0-linux-armv7l.tar.xz
 
 
-VOLUME [/application]
+VOLUME /application
 WORKDIR /application
 
 CMD ["/bin/bash"]
