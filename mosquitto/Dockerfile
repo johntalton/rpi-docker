@@ -10,6 +10,7 @@ WORKDIR /var/lib/mosquitto
 COPY mosquitto.conf /var/lib/mosquitto/
 
 EXPOSE 1883
+EXPOSE 1884
 
 CMD ["/usr/sbin/mosquitto", "-c", "/var/lib/mosquitto/mosquitto.conf"]
 
