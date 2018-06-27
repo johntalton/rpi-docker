@@ -1,0 +1,1 @@
+dtoverlay=pitft35-resistive,rotate=0,speed=25000000,fps=20
