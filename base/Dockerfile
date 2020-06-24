@@ -1,4 +1,4 @@
-FROM jotalt/rpi-raspbian:buster
+FROM jotalt/rpi-pios64:buster
 #FROM armv7/armhf-debian
 MAINTAINER John Talton <johntalton@gmail.com>
 
